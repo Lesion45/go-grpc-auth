@@ -1,5 +1,5 @@
-# Authentification service
-This project is an API for JWT-based authentification
+# Authentication service
+This project is an API for JWT-based authentication
 ## Features
 * Registrate a new user
 * Log in a user
