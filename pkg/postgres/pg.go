@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"grpc-auth/config"
 )
 
 type Postgres struct {
@@ -21,11 +22,12 @@ var (
 	pgInstance *Postgres
 )
 
-func NewPG(ctx context.Context) (*Postgres, error) {
+func NewPG(ctx context.Context, storage config.Storage) (*Postgres, error) {
 	const op = "storage.postgres.NewPG"
 
-	DSN := fmt.Sprintf("host=%s port=%d user=%s " +
-		"password=%s dbname=%s sslmode=disable")
+	DSN := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		storage.Host, storage.Port, storage.User, storage.Password, storage.Name)
 
 	db, err := pgxpool.New(ctx, DSN)
 	if err != nil {
