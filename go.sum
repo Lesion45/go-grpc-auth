@@ -6,11 +6,15 @@ github.com/Lesion45/auth-protos v0.0.0-20241018075934-73887a462a69 h1:trjYjdrGey
 github.com/Lesion45/auth-protos v0.0.0-20241018075934-73887a462a69/go.mod h1:SMZYusWXu9Lc8ROjvy8fxMCJXeDPQLFCx210n8cvq0k=
 github.com/Lesion45/auth-protos v0.0.0-20241018081143-3707218ef9e4 h1:9Oi0Wq/mNbb/TnZzdtoQkbVwivMz7KctBRjdnMfghEE=
 github.com/Lesion45/auth-protos v0.0.0-20241018081143-3707218ef9e4/go.mod h1:SMZYusWXu9Lc8ROjvy8fxMCJXeDPQLFCx210n8cvq0k=
+github.com/Lesion45/auth-protos v0.0.0-20241107202702-e9bd3501be2e h1:NOQ/5byngV7RykQboThxgKfatXXnP9t8lsRzeE0VvOE=
+github.com/Lesion45/auth-protos v0.0.0-20241107202702-e9bd3501be2e/go.mod h1:SMZYusWXu9Lc8ROjvy8fxMCJXeDPQLFCx210n8cvq0k=
 github.com/Lesion45/protos v0.0.0-20240917200008-d7d40de898cf h1:rFhyKJPWdj9wXMSyKAK7Gr+QVBZhK0lVz4YEgfpjOzQ=
 github.com/Lesion45/protos v0.0.0-20240917200008-d7d40de898cf/go.mod h1:VqGDS0c/m9BniMoeLb1Lq+mhRzJljc5poKLcUJfTQ1A=
 github.com/Lesion45/protos v0.0.0-20241017210015-ac512ede0c0d h1:aet52qoFzkcNjUrN4lKfEHxtEq1EE4Uc9YVGcvPaqpQ=
 github.com/Lesion45/protos v0.0.0-20241017210015-ac512ede0c0d/go.mod h1:VqGDS0c/m9BniMoeLb1Lq+mhRzJljc5poKLcUJfTQ1A=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/dchest/uniuri v1.2.0 h1:koIcOUdrTIivZgSLhHQvKgqdWZq5d7KdMEWF1Ud6+5g=
+github.com/dchest/uniuri v1.2.0/go.mod h1:fSzm4SLHzNZvWLvWJew423PhAzkpNQYq+uNLq4kxhkY=
 github.com/golang-jwt/jwt/v5 v5.2.1 h1:OuVbFODueb089Lh128TAcimifWaLhJwVflnrgM17wHk=
 github.com/golang-jwt/jwt/v5 v5.2.1/go.mod h1:pqrtFR0X4osieyHYxtmOUWsAWrfe1Q5UVIyoH402zdk=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=

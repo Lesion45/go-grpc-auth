@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/dchest/uniuri"
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
@@ -25,10 +26,13 @@ func (r *UserRepository) SaveUser(ctx context.Context, email string, passHash []
 
 	var userID uuid.UUID
 
-	query := `INSERT INTO users_schema.user(email, password_hash) VALUES(@userEmail, @userPasswordHash) RETURNING id`
+	sault := uniuri.New()
+
+	query := `INSERT INTO users_schema.user(email, password_hash, salt) VALUES(@userEmail, @userPasswordHash, @userSalt) RETURNING id`
 	args := pgx.NamedArgs{
 		"userEmail":        email,
 		"userPasswordHash": passHash,
+		"userSalt":         sault,
 	}
 
 	err := r.DB.QueryRow(ctx, query, args).Scan(&userID)
@@ -52,13 +56,14 @@ func (r *UserRepository) GetUser(ctx context.Context, email string) (models.User
 	var userID uuid.UUID
 	var userEmail string
 	var userPasswordHash []byte
+	var userSalt string
 
 	query := `SELECT id, email, password_hash FROM users_schema.user WHERE email = @userEmail`
 	args := pgx.NamedArgs{
 		"userEmail": email,
 	}
 
-	err := r.DB.QueryRow(ctx, query, args).Scan(&userID, &userEmail, &userPasswordHash)
+	err := r.DB.QueryRow(ctx, query, args).Scan(&userID, &userEmail, &userPasswordHash, &userSalt)
 	if err != nil {
 		if errors.Is(err, pgx.ErrNoRows) {
 			return models.User{}, fmt.Errorf("%s: %w", op, repository.ErrUserNotFound)
@@ -68,9 +73,10 @@ func (r *UserRepository) GetUser(ctx context.Context, email string) (models.User
 	}
 
 	user := models.User{
-		userID,
-		userEmail,
-		userPasswordHash,
+		ID:           userID,
+		Email:        userEmail,
+		PasswordHash: userPasswordHash,
+		Salt:         userSalt,
 	}
 
 	return user, nil

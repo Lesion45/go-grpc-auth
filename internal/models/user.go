@@ -6,4 +6,5 @@ type User struct {
 	ID           uuid.UUID
 	Email        string
 	PasswordHash []byte
+	Salt         string
 }

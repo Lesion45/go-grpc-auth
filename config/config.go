@@ -4,10 +4,18 @@ import (
 	"github.com/ilyakaznacheev/cleanenv"
 	"log"
 	"os"
+	"time"
 )
 
 type Config struct {
-	Env string `yaml:"env" env-default:"local"`
+	Env      string        `yaml:"env" env-default:"local"`
+	TokenTTL time.Duration `yaml:"token-ttl" env-default:"7h"`
+	GRPC     GRPC
+	Storage  Storage
+}
+
+type GRPC struct {
+	Port int `yaml:"port"`
 }
 
 type Storage struct {
@@ -18,8 +26,10 @@ type Storage struct {
 	Name     string `yaml:"dbname"`
 }
 
+// MustLoad loads configuration from config.yaml
+// Shut down the application if the config doesn't exist or if there is an error reading the config.
 func MustLoad() *Config {
-	configPath := "/app/config/config.yaml"
+	configPath := "C:\\Users\\maus1\\GolandProjects\\go-grpc-auth\\config\\config.yaml"
 
 	// check if file exists
 	if _, err := os.Stat(configPath); os.IsNotExist(err) {

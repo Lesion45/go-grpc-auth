@@ -4,8 +4,9 @@ go 1.21.4
 
 require (
 	github.com/BurntSushi/toml v1.2.1 // indirect
-	github.com/Lesion45/auth-protos v0.0.0-20241018081143-3707218ef9e4 // indirect
+	github.com/Lesion45/auth-protos v0.0.0-20241107202702-e9bd3501be2e // indirect
 	github.com/Lesion45/protos v0.0.0-20241017210015-ac512ede0c0d // indirect
+	github.com/dchest/uniuri v1.2.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.1.0 // indirect

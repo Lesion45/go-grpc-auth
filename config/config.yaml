@@ -1,5 +1,7 @@
 env: "local" # options: prod dev local
-
+token-ttl: "7h"
+grpc:
+  port: 8000
 storage:
   host: "db"
   port: 5432
